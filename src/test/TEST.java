@@ -1,3 +1,5 @@
+package test;
+
 public class TEST {
 
     public void test(){
