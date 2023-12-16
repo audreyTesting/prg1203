@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="Changing Main to Game">
-      <change afterPath="$PROJECT_DIR$/src/FirePokemon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GrassPokemon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pokemon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WaterPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="Game + Pokemon + Item + Score + Player added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,12 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702115691685</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Game + Pokemon + Item + Score + Player added">
+      <option name="closed" value="true" />
+      <created>1702634932451</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702634932451</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing" />
     <MESSAGE value="Changing Main to Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing Main to Game" />
+    <MESSAGE value="Game + Pokemon + Item + Score + Player added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game + Pokemon + Item + Score + Player added" />
   </component>
 </project>
