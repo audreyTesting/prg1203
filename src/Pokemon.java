@@ -6,8 +6,11 @@ public class Pokemon {
     private String name;
     private int level;
     private String type;
+    private int hp;
+    private int defense;
+    private int attack;
+    private int speed;
     private String ability;
-    private String species;
 
 
     //constructors
@@ -15,14 +18,18 @@ public class Pokemon {
 
     }
 
-    public Pokemon(int index, String name, int level,String type, String ability, String species) {
+    public Pokemon(int index, String name, int level,String type, int hp, int defense, int attack, int speed, String ability ) {
         super();
         this.index = index;
         this.name = name;
         this.level = level;
         this.type = type;
+        this.hp = hp;
+        this.defense = defense;
+        this.attack = attack;
+        this.speed = speed;
         this.ability = ability;
-        this.species = species;
+
     }
 
 
@@ -43,22 +50,45 @@ public class Pokemon {
         return type;
     }
 
+    public int getHp() {
+        return hp;
+    }
+    public int getDefense() {
+        return defense;
+    }
+    public int getAttack () {
+        return attack;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+
     public String getAbility() {
         return ability;
     }
 
-    public String getSpecies() {
-        return species;
-    }
 
     //other methods
+//	public void level() {
+//        hp = hp * level; // tentatively
+//    }
 
-    //toString
+
+
     @Override
     public String toString() {
-        return String.format("Name : %s/n Level : %d/n Ability : %s\n Species : %s", name,level,ability,species);
+        return "Index: " + index + ", name: " + name + ", level: " + level + ", type: " + type + ", hp: " + hp
+                + ", defense: " + defense + ", attack: " + attack + ", speed: " + speed + ", ability: " + ability ;
     }
 
 
 
 }
+
+
+
+
+
+
+
+
