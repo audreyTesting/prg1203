@@ -11,8 +11,9 @@ public class Player {
 
     //empty constructor
     public Player() {
-        inventory = new ArrayList<>();
-        pokemons = new ArrayList<>();
+        this.medals =100;
+        this.inventory = new ArrayList<>();
+        this.pokemons = new ArrayList<>();
     }
 
     //setters getters
@@ -52,8 +53,30 @@ public class Player {
         this.pokemons = pokemons;
     }
 
+    public void listPokemons() {
+        // Implementation...
+    }
 
-    //other methods
+    public Pokemon[] getPokemonst() {
+        return null;
+    }
+
+
+
+    ///other methods
+    public void choosePokemon() {
+        System.out.println("Select a Pokemon to send out:");
+        listPokemons();
+
+        Pokemon[] playerPokemons = getPokemonst();
+        if (playerPokemons.length > 0 && playerPokemons[0] != null) {
+            Pokemon selectedPokemon = playerPokemons[0];
+            System.out.println(getName() + " sends out " + selectedPokemon.getName() + "!");
+        } else {
+            System.out.println(getName() + " has no Pokemon to send out.");
+        }
+    }
+
     public void removeItemFromInventory(Item item) {
         inventory.remove(item);
     }
@@ -65,6 +88,15 @@ public class Player {
     public void removePokemon(Pokemon pokemon) {
         pokemons.remove(pokemon);
     }
+
+    public void displayPokemons() {
+        System.out.println("Pokemons owned by " + name + ":");
+        for (Pokemon pokemon : pokemons) {
+            System.out.println(pokemon.getName() + " - Level " + pokemon.getLevel());
+        }
+    }
+
+
 
 
 }

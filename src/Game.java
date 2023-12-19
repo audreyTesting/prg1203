@@ -63,9 +63,6 @@ public class Game {
         } while (choice != 4);
     }
 
-
-
-
     // printing main menu
     private void displayMainMenu() {
         System.out.println("Select:");
@@ -76,7 +73,22 @@ public class Game {
         System.out.print("Enter your choice: ");
     }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    [1] CATCH AND BATTLE
+//
+//    		CATCH:
+//    		- generate 1 random Pokeball
+//    		- generate 3 random Pokemon to catch (display name + level)
+//    		- player choose one out of 3
+//
+//    		BATTLE:
+//    		- generate 2 wild pokemons
+//    		- player choose 2 from their pokemons
+//    		-
+//
+//
 
     //catch and battle mode
     private void catchAndBattle() {
@@ -101,7 +113,7 @@ public class Game {
     }
 
 
-    //adding items list
+    //creating item into availableItems
     private void initializeItems() {
         availableItems.add(new Item("[1] Attack Capsule",	"Providint a attack boost in battle",		30));
         availableItems.add(new Item("[2] Defense Capsule",	"Provides defense boost during defense",	30));
@@ -111,7 +123,7 @@ public class Game {
         availableItems.add(new Item("[6] Spirit Drink",		"Increase player's starting FP by 100%",	30));
     }
 
-    //pokeball list
+    //adding pokeball into balls
     private void pokeballList() {
         Pokeball ball1 = new Pokeball("Poke ball", 1,1);
         Pokeball ball2 = new Pokeball("Great ball", 2,2);
@@ -123,6 +135,7 @@ public class Game {
         balls.add(ball4);
     }
 
+    // generating random pokeball from balls
     private Pokeball generateRandomPokeball() {
         if (balls.isEmpty()) {
             return null;
@@ -133,7 +146,7 @@ public class Game {
         return balls.get(randomIndex); // Return the Pokeball at the random index
     }
 
-    //adding pokemons list
+    //creating pokemons based on their type then add into their typePokemon
     private void pokemonsList() {
         //fire type
         FirePokemon fire1 = new FirePokemon(244,"Entei",1,115,115,85,100,"Pressure,Flash Fire");
@@ -166,7 +179,7 @@ public class Game {
         grassPokemon.add(grass4);
     }
 
-    //random pokemon from each type
+    //generate random pokemon from each type
     public List<Pokemon> gnrRandPokemonList(){
         List<Pokemon> randPokemonList = new ArrayList<>();
 
@@ -200,33 +213,77 @@ public class Game {
             }
         }
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    	[2]	POKEMONS
+//    			- display players' pokemon (including caught)
+// 				- include name, hp, attack, defense, speed, ability, level
+//
+//
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    	[3]	STORE
+//    			- allows player to purchase item
+//    			- if players' medal not enough, show insufficient
+//
+//
 
 
     //displaying stores and inventory
     private void displayStore() {
         System.out.println("\nWelcome to the Poke Store!");
-        System.out.println("Medals: " + player.getMedals());
-        System.out.println("Your Inventory:");
-        player.getInventory();
-        System.out.println("\nItem available: ");
-        System.out.println("—---------------------------------------------------------------------------------------------");
-        System.out.println("Name\t\t\t\tDescription\t\t\t\t\tCost");
-        System.out.println("—---------------------------------------------------------------------------------------------");
-        for (Item item : availableItems) {
-            System.out.println(item.getName() + "\t\t" +
-                    item.getFunction() + "\t\t" +
-                    item.getCost() + " Medals");
+        System.out.println("Your Medals\t: " + player.getMedals());
+        List<Item> inventory = player.getInventory();
+        System.out.println("\nYour Inventory:");
+        if (inventory.isEmpty()) {
+            System.out.println("(--empty--)");
         }
-        System.out.println("—---------------------------------------------------------------------------------------------");
+        else {
+            System.out.println("—---------------------------------------------------------------------------------------------");
+            System.out.println("\tName\t\t\tDescription\t\t\t\t\tAmount");
+            System.out.println("—---------------------------------------------------------------------------------------------");
 
+            for (int i = 0; i < inventory.size(); i++) {
+                Item currentItem = inventory.get(i);
+
+                // Skip if the item has already been counted
+                if (inventory.subList(0, i).contains(currentItem)) {
+                    continue;
+                }
+
+                int count = (int) inventory.stream().filter(item -> item.equals(currentItem)).count();
+                System.out.println(currentItem.getName() + "\t\t" +
+                        currentItem.getFunction() + "\t\t" +
+                        count);
+            }
+            System.out.println("—---------------------------------------------------------------------------------------------");
+        }
+
+        displayAvailableItems();
         int storeChoice;
         do {
             displayStoreMenu();
             storeChoice = scanner.nextInt();
-            switch(storeChoice) {
+            switch (storeChoice) {
                 case 1:
                     purchaseItem();
+                    // After the purchase is made, display the updated inventory
+                    System.out.println("\nYour Updated Inventory:");
+
+                    // Display each unique item and its count again after the purchase
+                    for (int i = 0; i < inventory.size(); i++) {
+                        Item currentItem = inventory.get(i);
+
+                        // Skip if the item has already been counted
+                        if (inventory.subList(0, i).contains(currentItem)) {
+                            continue;
+                        }
+
+                        int count = (int) inventory.stream().filter(item -> item.equals(currentItem)).count();
+                        System.out.println(currentItem.getName() +"\t\tAmount:" +count);
+                    }
                     break;
                 case 2:
                     System.out.println("Exiting the store.\n");
@@ -235,10 +292,10 @@ public class Game {
                     System.out.println("Invalid choice. Please choose again.");
                     break;
             }
-        }while(storeChoice != 2);
+        } while (storeChoice != 2);
     }
 
-    //main menu for store
+    //in-store main menu
     private void displayStoreMenu() {
         System.out.println("\nStore Options:");
         System.out.println("(1) Purchase");
@@ -247,15 +304,54 @@ public class Game {
     }
 
 
-    //method to purchase item
-    private void purchaseItem() {
 
+    private void displayAvailableItems() {
+        System.out.println("\nItem available\t: ");
+        System.out.println("—---------------------------------------------------------------------------------------------");
+        System.out.println("\tName\t\t\tDescription\t\t\t\t\tCost");
+        System.out.println("—---------------------------------------------------------------------------------------------");
+        for (Item item : availableItems) {
+            System.out.println(item.getName() + "\t\t" +
+                    item.getFunction() + "\t\t" +
+                    item.getCost() + " Medals");
+        }
+        System.out.println("—---------------------------------------------------------------------------------------------");
 
     }
 
 
+    //method to purchase item
+    private void purchaseItem() {
+        displayAvailableItems(); // Method to display available items in the store
+        System.out.print("Enter the number of the item you want to purchase: ");
+        int selectedItemIndex = scanner.nextInt();
+
+        // Adjusting for 0-based index when accessing the list
+        int itemIndex = selectedItemIndex - 1;
+
+        // Check if the entered index is within the range of available items
+        if (itemIndex >= 0 && itemIndex < availableItems.size()) {
+            Item selectedItem = availableItems.get(itemIndex);
+
+            // Check if the player has enough medals to purchase the item
+            if (player.getMedals() >= selectedItem.getCost()) {
+                // Deduct the cost of the item from the player's medals
+                player.setMedals(player.getMedals() - selectedItem.getCost());
+
+                // Add the purchased item to the player's inventory
+                player.addItemToInventory(selectedItem);
+
+                System.out.println("You have successfully purchased " + selectedItem.getName() + "!");
+                System.out.println("Remaining Medals: " + player.getMedals());
+            } else {
+                System.out.println("Insufficient Medals to purchase this item.");
+            }
+        } else {
+            System.out.println("Invalid item selection.");
+        }
+    }
+
     public void close() {
-        // Close any resources (e.g., scanner) when the game ends
         scanner.close();
     }
 
