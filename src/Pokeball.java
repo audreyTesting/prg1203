@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Pokeball {
     private String name;
     private int catchrate;
@@ -42,7 +44,6 @@ public class Pokeball {
     //methods
     public void getRandomPokeball() {
         //get random pokeball based on catchrate
-
     }
 
     public void pokeballList() {

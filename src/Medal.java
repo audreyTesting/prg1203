@@ -1,5 +1,6 @@
 
 public class Medal {
+    //attributes
     private int medalnum;
 
     //constructor

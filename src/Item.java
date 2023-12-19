@@ -2,6 +2,7 @@
 public class Item {
 
     //attributes
+
     private String name;
     private String function;
     private int cost;
@@ -21,15 +22,11 @@ public class Item {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     public String getFunction() {
         return function;
     }
-    public void setFunction(String function) {
-        this.function = function;
-    }
+
     public int getCost() {
         return cost;
     }

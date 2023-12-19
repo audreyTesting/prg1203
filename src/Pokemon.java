@@ -7,6 +7,7 @@ public class Pokemon {
     private int level;
     private String type;
     private int hp;
+    private int maxHP = 300;
     private int defense;
     private int attack;
     private int speed;
@@ -72,14 +73,43 @@ public class Pokemon {
 //	public void level() {
 //        hp = hp * level; // tentatively
 //    }
+    public void takeDamage(int damage) {
+        int actualDamage = calculateActualDamage(damage); // Consider defense, type advantages, etc.
+        hp -= actualDamage;
+        if (hp < 0) {
+            hp = 0; // Ensure HP doesn't go negative
+        }
+    }
+
+    private int calculateActualDamage(int damage) {
+        // Implement logic to calculate actual damage based on defense, type advantages, etc.
+        // For example:
+        int actualDamage = damage - defense;
+        if (actualDamage < 0) {
+            actualDamage = 0; // Ensure damage doesn't become negative
+        }
+        return actualDamage;
+    }
+
+    public void applyPowerUp(int boostAmount) {
+        hp += boostAmount;
+        // You might want to impose a maximum HP limit if needed
+        if (hp > maxHP) {
+            hp = maxHP; // Ensure HP doesn't exceed the maximum value
+        }
+    }
 
 
 
     @Override
     public String toString() {
-        return "Index: " + index + ", name: " + name + ", level: " + level + ", type: " + type + ", hp: " + hp
-                + ", defense: " + defense + ", attack: " + attack + ", speed: " + speed + ", ability: " + ability ;
+        return String.format(
+                "Index: %d%nName: %s%nLevel: %d%nType: %s%nHP: %d%nDefense: %d%nAttack: %d%nSpeed: %d%nAbility: %s",
+                getIndex(), getName(), getLevel(), getType(), getHp(), getDefense(), getAttack(), getSpeed(), getAbility()
+        );
     }
+
+
 
 
 
