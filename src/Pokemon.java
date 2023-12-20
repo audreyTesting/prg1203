@@ -104,7 +104,7 @@ public class Pokemon {
     @Override
     public String toString() {
         return String.format(
-                "\tIndex: %d%n\tName: %s%n\tLevel: %d%n\tType: %s%n\tHP: %d%n\tDefense: %d%n\tAttack: %d%n\tSpeed: %d%n\tAbility: %s",
+                "\tIndex: %d%n\tName: %s%n\tLevel: %s%n\tType: %s%n\tHP: %d%n\tDefense: %d%n\tAttack: %d%n\tSpeed: %d%n\tAbility: %s",
                 getIndex(), getName(), levelToStars(getLevel()), getType(), getHp(), getDefense(), getAttack(), getSpeed(), getAbility()
         );
     }

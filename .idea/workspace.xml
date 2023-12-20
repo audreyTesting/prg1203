@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="20 dec 11:02 Generate 2 pokemons for opponent during battle">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="20th Dec 17:12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MedalTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703041362120</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="20th Dec 17:12">
+      <option name="closed" value="true" />
+      <created>1703063579410</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1703063579410</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -198,6 +202,7 @@
     <MESSAGE value="added on 19th Dec:&#10;1. decrease medal after purchase&#10;2. player able to select and purchase&#10;3. after purchase add item into inventory&#10;4. check players medal sufficient to buy" />
     <MESSAGE value="19th Dec 18:32" />
     <MESSAGE value="20 dec 11:02 Generate 2 pokemons for opponent during battle" />
-    <option name="LAST_COMMIT_MESSAGE" value="20 dec 11:02 Generate 2 pokemons for opponent during battle" />
+    <MESSAGE value="20th Dec 17:12" />
+    <option name="LAST_COMMIT_MESSAGE" value="20th Dec 17:12" />
   </component>
 </project>

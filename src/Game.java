@@ -68,7 +68,7 @@ public class Game {
             switch (choice) {
                 case 1:
                     catchAndBattle();
-                    battle = new Battle();
+                    //battle = new Battle();
                     battle.initializeBattle(availablePokemons);
                     break;
                 case 2:
@@ -128,14 +128,20 @@ public class Game {
         System.out.println("\t ---------! WELCOME TO Catch & Battle !---------");
         System.out.println("\t—------------------------------------------------");
 
+
+        //create a list of caught pokemon
         List<Pokemon> userPokemonChoices = gnrRandPokemonList();
         boolean pokemonCaught = false;
 
+
+
+        //catching process..
         // Loop until a Pokemon is caught or no more choices left
         while (!pokemonCaught && !userPokemonChoices.isEmpty()) {
             System.out.println("\n\tA pokemon ball is generating…");
             Pokeball randomPokeball = generateRandomPokeball();
 
+            //if caught a pokemon
             System.out.println("\tTADAAA–! You got a \n" +"\t"+ randomPokeball.getName());
             System.out.println("\n\tPokemons caught !!");
 
@@ -163,6 +169,7 @@ public class Game {
                 System.out.println("\n\t"+chosenPokemon.getName() + " was caught!");
                 player.addPokemon(chosenPokemon); // Add the caught Pokemon to player's Pokemon list
                 pokemonCaught = true;
+
             } else {
                 System.out.println("\t OHNO!! "+chosenPokemon.getName() + " ran away...");
                 System.out.println("\t—------------------------------------------------");
@@ -174,17 +181,21 @@ public class Game {
             }
         }
 
+        //generate random pokemons for opponents
         List<Pokemon> randomPokemons = gnrRandPokemonList();
         availablePokemons.addAll(randomPokemons);
 
+
+        //pokemon chose by the player to use in the battle
         List<Pokemon> playerChoices = battle.playerChoosePokemon();
         if (playerChoices != null && playerChoices.size() == 2) {
             System.out.println("\n\tYou've chosen your Pokémon for the battle!");
-            // You can then proceed with the battle using the chosen Pokémon
+
             battle.startBattle(playerChoices, battle.getOpponentPokemon1(), battle.getOpponentPokemon2());
         } else {
             System.out.println("\tYou need to choose 2 valid Pokémon!");
         }
+
     }
 
 
