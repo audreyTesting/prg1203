@@ -7,11 +7,13 @@ public class Game {
 
     //attributes
     private Player player;
+    private Battle battle;
     private List <Item> availableItems;
     private List<Pokeball> balls = new ArrayList<>();
     private List<GrassPokemon> grassPokemon = new ArrayList<>();
     private List<FirePokemon> firePokemon= new ArrayList<>();
     private List<WaterPokemon> waterPokemon= new ArrayList<>();
+    private List<Pokemon> availablePokemons = new ArrayList<>();
     private Scanner scanner;
 
     //empty constructor
@@ -22,9 +24,14 @@ public class Game {
         firePokemon = new ArrayList<>();
         waterPokemon = new ArrayList<>();
         grassPokemon = new ArrayList<>();
+        availablePokemons = new ArrayList<>();
+        availablePokemons.addAll(firePokemon);
+        availablePokemons.addAll(waterPokemon);
+        availablePokemons.addAll(grassPokemon);
         pokeballList();
         initializeItems();
         pokemonsList();
+        initializePlayerWithPokemon();
         scanner = new Scanner(System.in);
     }
 
@@ -59,6 +66,8 @@ public class Game {
             switch (choice) {
                 case 1:
                     catchAndBattle();
+                    battle = new Battle();
+                    battle.initializeBattle(availablePokemons);
                     break;
                 case 2:
                     displayPokemons();
@@ -86,6 +95,12 @@ public class Game {
         System.out.println("\t[4] Quit");
 
         System.out.print("\n\t>>Enter your choice: ");
+    }
+
+    private void initializePlayerWithPokemon() {
+        //creating one pokemon for the player
+        Pokemon initialPokemon = new Pokemon(556,"Maractus",1,"Grass",75,86,67,60,"Water Absorb");
+        player.setInitialPokemon(initialPokemon);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,13 +163,17 @@ public class Game {
                 pokemonCaught = true;
             } else {
                 System.out.println("\t OHNO!! "+chosenPokemon.getName() + " ran away...");
+                System.out.println("\t—------------------------------------------------");
                 userPokemonChoices.remove(chosenPokemon);
                 if (userPokemonChoices.isEmpty()) {
-                    System.out.println("\tNo more pokemons to catch.");
+                    System.out.println("\tTry Again! All pokemons had ran away!");
                     return;
                 }
             }
         }
+
+        List<Pokemon> randomPokemons = gnrRandPokemonList();
+        availablePokemons.addAll(randomPokemons);
     }
 
 

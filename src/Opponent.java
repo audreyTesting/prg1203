@@ -1,26 +1,15 @@
 public class Opponent {
-    private String name;
+    private Pokemon pokemon;
 
-    public Opponent(String name) {
-        this.name = name;
+    public Opponent(Pokemon pokemon) {
+        this.pokemon = pokemon;
     }
 
-    public void autoChoosePokemon() {
-        Pokemon selectedPokemon = sendOutPokemon();
-
-        if (selectedPokemon != null) {
-            System.out.println(getName() + " sends out " + selectedPokemon.getName() + "!");
-        } else {
-            System.out.println(getName() + " has no Pokemon to send out.");
-        }
-    }
-
-    public Pokemon sendOutPokemon() {
-        return null;
+    public Pokemon getOpponentPokemon() {
+        return pokemon;
     }
 
     public String getName() {
-        return this.name;
+        return pokemon.getName(); // You might have a separate name attribute for the opponent
     }
 }
-

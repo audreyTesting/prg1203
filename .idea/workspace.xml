@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="added on 19th Dec:&#10;1. decrease medal after purchase&#10;2. player able to select and purchase&#10;3. after purchase add item into inventory&#10;4. check players medal sufficient to buy">
+    <list default="true" id="ef214d9b-125e-49a9-b118-3a8ffaa92e2c" name="Changes" comment="19th Dec 18:32">
+      <change afterPath="$PROJECT_DIR$/src/Battle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FirePokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FirePokemon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GrassPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GrassPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pokeball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pokeball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Opponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Opponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaterPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaterPokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,17 +27,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;yxyjy&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "assignee": "yxyjy",
+      "author": "yxyjy"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "yxyjy",
+    "author": "yxyjy"
   }
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="4210b80c-bc92-4b06-ac1e-6de61c9a7173" />
-        <option name="url" value="https://github.com/audreyTesting/prg1203.git" />
+        <option name="accountId" value="ec42a533-11dd-4cd9-9a7d-73d3db986e17" />
+        <option name="url" value="http://github.com/audreyTesting/prg1203.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -164,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702956156927</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="19th Dec 18:32">
+      <option name="closed" value="true" />
+      <created>1702981987284</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702981987284</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +187,7 @@
     <MESSAGE value="changes on 16th Dec 12:09pm" />
     <MESSAGE value="generate random Pokeball + Pokemon for catch" />
     <MESSAGE value="added on 19th Dec:&#10;1. decrease medal after purchase&#10;2. player able to select and purchase&#10;3. after purchase add item into inventory&#10;4. check players medal sufficient to buy" />
-    <option name="LAST_COMMIT_MESSAGE" value="added on 19th Dec:&#10;1. decrease medal after purchase&#10;2. player able to select and purchase&#10;3. after purchase add item into inventory&#10;4. check players medal sufficient to buy" />
+    <MESSAGE value="19th Dec 18:32" />
+    <option name="LAST_COMMIT_MESSAGE" value="19th Dec 18:32" />
   </component>
 </project>

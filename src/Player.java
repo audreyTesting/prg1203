@@ -96,6 +96,9 @@ public class Player {
         }
     }
 
+    public void setInitialPokemon(Pokemon pokemon) {
+        pokemons.add(pokemon);
+    }
 
 
 

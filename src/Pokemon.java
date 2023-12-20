@@ -104,11 +104,18 @@ public class Pokemon {
     @Override
     public String toString() {
         return String.format(
-                "Index: %d%nName: %s%nLevel: %d%nType: %s%nHP: %d%nDefense: %d%nAttack: %d%nSpeed: %d%nAbility: %s",
-                getIndex(), getName(), getLevel(), getType(), getHp(), getDefense(), getAttack(), getSpeed(), getAbility()
+                "\tIndex: %d%n\tName: %s%n\tLevel: %d%n\tType: %s%n\tHP: %d%n\tDefense: %d%n\tAttack: %d%n\tSpeed: %d%n\tAbility: %s",
+                getIndex(), getName(), levelToStars(getLevel()), getType(), getHp(), getDefense(), getAttack(), getSpeed(), getAbility()
         );
     }
 
+    private String levelToStars(int level) {
+        StringBuilder stars = new StringBuilder();
+        for (int i = 0; i < level; i++) {
+            stars.append("★");
+        }
+        return stars.toString();
+    }
 
 
 
