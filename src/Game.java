@@ -19,6 +19,8 @@ public class Game {
     //empty constructor
     public Game() {
         player = new Player();
+        battle= new Battle();
+        battle.setPlayer(player);
         availableItems = new ArrayList<>();
         balls = new ArrayList<>();
         firePokemon = new ArrayList<>();
@@ -174,7 +176,17 @@ public class Game {
 
         List<Pokemon> randomPokemons = gnrRandPokemonList();
         availablePokemons.addAll(randomPokemons);
+
+        List<Pokemon> playerChoices = battle.playerChoosePokemon();
+        if (playerChoices != null && playerChoices.size() == 2) {
+            System.out.println("\n\tYou've chosen your Pokémon for the battle!");
+            // You can then proceed with the battle using the chosen Pokémon
+            battle.startBattle(playerChoices, battle.getOpponentPokemon1(), battle.getOpponentPokemon2());
+        } else {
+            System.out.println("\tYou need to choose 2 valid Pokémon!");
+        }
     }
+
 
 
     //creating item into availableItems
