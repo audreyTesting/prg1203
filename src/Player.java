@@ -100,5 +100,26 @@ public class Player {
         pokemons.add(pokemon);
     }
 
+    //get Attack and Defense Values
+    public List<Integer> getAttack() {
+        List<Integer> atkValues = new ArrayList<>();
+
+        for (int i = 0; i < pokemons.size(); i++) {
+            int atk = pokemons.get(i).getAttack();
+            atkValues.add(atk);
+        }
+        return atkValues;
+    }
+
+    public List<Integer> getDefense() {
+        List<Integer> defValues = new ArrayList<>();
+
+        for (int i = 0; i < pokemons.size(); i++) {
+            int def = pokemons.get(i).getDefense();
+            defValues.add(def);
+        }
+        return defValues;
+    }
+
 
 }

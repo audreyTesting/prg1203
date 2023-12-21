@@ -19,7 +19,7 @@ public class Game {
     //empty constructor
     public Game() {
         player = new Player();
-        battle= new Battle();
+        this.battle= new Battle();
         battle.setPlayer(player);
         availableItems = new ArrayList<>();
         balls = new ArrayList<>();
@@ -70,6 +70,7 @@ public class Game {
                     catchAndBattle();
                     //battle = new Battle();
                     battle.initializeBattle(availablePokemons);
+                    initiateBattle();
                     break;
                 case 2:
                     displayPokemons();
@@ -181,17 +182,24 @@ public class Game {
             }
         }
 
+    }
+
+    public void initiateBattle() {
         //generate random pokemons for opponents
         List<Pokemon> randomPokemons = gnrRandPokemonList();
         availablePokemons.addAll(randomPokemons);
 
+        battle.initializeBattle(randomPokemons);
 
         //pokemon chose by the player to use in the battle
         List<Pokemon> playerChoices = battle.playerChoosePokemon();
+
         if (playerChoices != null && playerChoices.size() == 2) {
             System.out.println("\n\tYou've chosen your Pokémon for the battle!");
 
-            battle.startBattle(playerChoices, battle.getOpponentPokemon1(), battle.getOpponentPokemon2());
+            List<Item> playerInventory = new ArrayList<>();
+
+            battle.startBattle(playerChoices, battle.getOpponentPokemon1(), battle.getOpponentPokemon2(),playerInventory);
         } else {
             System.out.println("\tYou need to choose 2 valid Pokémon!");
         }
@@ -202,12 +210,12 @@ public class Game {
 
     //creating item into availableItems
     private void initializeItems() {
-        availableItems.add(new Item("[1] Attack Capsule",	"Providint a attack boost in battle",		30));
+        availableItems.add(new Item("[1] Attack Capsule",	"Provides an attack boost in battle",		30));
         availableItems.add(new Item("[2] Defense Capsule",	"Provides defense boost during defense",	30));
         availableItems.add(new Item("[3] Quicker Drink",	"Speed up attack move during attack",		30));
-        availableItems.add(new Item("[4] Aim BoostScope",		"Increase the chance of critical hit",		30));
-        availableItems.add(new Item("[5] Support Pokemon",	"Unlocks a new Support pokemon in battle", 	30));
-        availableItems.add(new Item("[6] Spirit Drink",		"Increase player's starting FP by 100%",	30));
+        availableItems.add(new Item("[4] Freezer poison",		"Frozen the opponent and skip its turn",		30));
+        availableItems.add(new Item("[5] Support Pokemon",	"Hidden pokemon attacks the opponent", 	30));
+        availableItems.add(new Item("[6] Spirit Drink",		"Increase player's HP by 30",	30));
     }
 
     //adding pokeball into balls
@@ -298,7 +306,7 @@ public class Game {
             System.out.println("\t—------------------------------------------------");
             System.out.println("\t ---------! WELCOME TO Pokemon Box !---------");
             System.out.println("\t—------------------------------------------------");
-            System.out.println("\n\tHere are your pokemons:");
+            System.out.println("\n\tHere are your pokemons:\n");
             for (Pokemon pokemon : allPokemons) {
                 System.out.println(pokemon.toString());
             }

@@ -1,4 +1,5 @@
 
+
 public class Pokemon {
 
     //attributes
@@ -54,6 +55,14 @@ public class Pokemon {
     public int getHp() {
         return hp;
     }
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
     public int getDefense() {
         return defense;
     }
@@ -70,9 +79,6 @@ public class Pokemon {
 
 
     //other methods
-//	public void level() {
-//        hp = hp * level; // tentatively
-//    }
     public void takeDamage(int damage) {
         int actualDamage = calculateActualDamage(damage); // Consider defense, type advantages, etc.
         hp -= actualDamage;
@@ -91,11 +97,40 @@ public class Pokemon {
         return actualDamage;
     }
 
+    public int calculateDamage(Pokemon opponent) {
+        int damage;
+        String type = this.getType();
+        switch (type) {
+            case "Fire":
+                damage = (int) (this.getAttack() * 0.5) - opponent.getDefense();
+                break;
+            case "Water":
+                damage = (int) (this.getAttack() * 0.5) - opponent.getDefense();
+                break;
+            case "Grass":
+                damage = (int) (this.getAttack() * 2) - opponent.getDefense();
+                break;
+            default:
+                damage = this.getAttack() - opponent.getDefense();
+                break;
+        }
+        if (damage < 0) {
+            damage = 0; // Ensure damage is not negative
+        }
+        return damage;
+    }
     public void applyPowerUp(int boostAmount) {
         hp += boostAmount;
         // You might want to impose a maximum HP limit if needed
         if (hp > maxHP) {
             hp = maxHP; // Ensure HP doesn't exceed the maximum value
+        }
+    }
+
+    public void reduceHp(int damage) {
+        this.hp -= damage;
+        if (this.hp < 0) {
+            this.hp = 0; // Ensure HP doesn't go negative
         }
     }
 
@@ -116,6 +151,23 @@ public class Pokemon {
         }
         return stars.toString();
     }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
 
 
 

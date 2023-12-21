@@ -6,9 +6,11 @@ public class Item {
     private String name;
     private String function;
     private int cost;
+    private int itemEffect = 30;
 
     //empty constructors
     public Item() {
+        this.itemEffect = itemEffect;
 
     }
 
@@ -17,6 +19,9 @@ public class Item {
         this.name = name;
         this.function = function;
         this.cost = cost;
+    }
+    public int getItemEffect() {
+        return itemEffect;
     }
 
     public String getName() {
